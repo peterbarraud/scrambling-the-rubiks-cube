@@ -1,9 +1,9 @@
 $(document).ready(function(){
     var screenwidth = parseInt($(window).width());
-    var imagewidth = screenwidth < 700 ? 70 : 120;
+    var imagewidth = screenwidth < 700 ? 70 : 135;
     $( '#versionnumber' ).text($('meta[name=versionnumber]').attr('content'));
     $( '#screenwidth' ).text(screenwidth);
-    const row_len = screenwidth < 700 ? 4 : 12;
+    const row_len = screenwidth < 700 ? 6 : 12;
     var scrabmle_str = "L2 R D2 L' B F' L D' U2 F L' R F D2 U B' L' R2 B' R D L' D' L2 B' R U' R' B2 D";
     $ ( '#scramble' ).text(scrabmle_str);
     var moves = [];
