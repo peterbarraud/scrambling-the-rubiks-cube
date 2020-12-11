@@ -16,7 +16,7 @@ $(document).ready(function(){
       for (var i=0;i<moves.length;i++){
           var tr = $( '<tr/>' );
           for (var j=0;j<row_len;j++){
-              tr.append('<td><img src="imgs/' + moves[i] + '.png"></td>');
+              tr.append('<td><img src="imgs/' + moves[i] + '.png" width=70px></td>');
               i += 1;
               if (i==moves.length){
                   break;
