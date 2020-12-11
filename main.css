@@ -17,7 +17,7 @@ main {
   padding: 15px;
   margin: auto;
 }
-table {
+td {
     border: 0.1ex;
     border-style: solid;
 }
