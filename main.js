@@ -1,10 +1,16 @@
 $(document).ready(function(){
     var screenwidth = parseInt($(window).width());
-    var imagewidth = screenwidth < 700 ? 70 : 135;
-    $( '#versionnumber' ).text($('meta[name=versionnumber]').attr('content'));
-    $( '#screenwidth' ).text(screenwidth);
-    const row_len = screenwidth < 700 ? 6 : 12;
-    var scrabmle_str = "L2 R D2 L' B F' L D' U2 F L' R F D2 U B' L' R2 B' R D L' D' L2 B' R U' R' B2 D";
+    var imagewidth = screenwidth < 700 ? 70 : 85;
+    if (window.location.href.indexOf('showversion') > -1){
+        $( '#versionnumber' ).css('display','block');
+        $( '#versionnumber' ).text($('meta[name=versionnumber]').attr('content'));
+    } else {
+        $( '#versionnumber' ).css('display','none');
+    }
+    const row_len = screenwidth < 700 ? 6 : 18;
+    var scrambler = new Scrambler();
+    
+    var scrabmle_str = scrambler.getScramble();
     $ ( '#scramble' ).text(scrabmle_str);
     var moves = [];
     $( scrabmle_str.toLocaleLowerCase().split(' ') ).each(function(i, move) {
@@ -28,5 +34,4 @@ $(document).ready(function(){
           $( 'table' ).append(tr);
       }
 
-      console.log('all don')
   });
