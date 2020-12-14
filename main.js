@@ -7,7 +7,7 @@ $(document).ready(function(){
     } else {
         $( '#versionnumber' ).css('display','none');
     }
-    const row_len = screenwidth < 700 ? 6 : 18;
+    const row_len = parseInt(screenwidth/imagewidth);
     var scrambler = new Scrambler();
     
     var scrabmle_str = scrambler.getScramble();
@@ -22,16 +22,15 @@ $(document).ready(function(){
                 moves.push(move[0]);
         }        
       });
-      for (var i=0;i<moves.length;i++){
-          var tr = $( '<tr/>' );
-          for (var j=0;j<row_len;j++){
-              tr.append('<td><img src="imgs/' + moves[i] + '.png" width=' + imagewidth + 'px></td>');
-              i += 1;
-              if (i==moves.length){
-                  break;
-              }
+      var tr = null;
+      $.each(moves, function(i, move){
+          if (i%row_len === 0){
+              tr = $( '<tr/>' );
+          } else if((i+1)%row_len === 0){
+            $( 'table' ).append(tr);
           }
-          $( 'table' ).append(tr);
-      }
+          tr.append('<td><img src="imgs/' + moves[i] + '.png" width=' + imagewidth + 'px><br>' + moves[i] + '</td>');
+      });
+      $( 'table' ).append(tr);
 
   });

@@ -17,5 +17,6 @@ class Scrambler {
             }
         }
         return retval;
+        // return "R F2 L R' D2 L2 B D U2 L' U2"
     }
   }
